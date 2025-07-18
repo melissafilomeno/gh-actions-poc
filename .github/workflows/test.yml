@@ -11,7 +11,7 @@ jobs:
   workflow_1:
     runs-on: ubuntu-latest
     outputs:
-      output1: ${{ steps.run1.outputs.test }}
+      result: ${{ steps.run1.outputs.result }}
     steps:
       - uses: actions/checkout@v4
         with: 
@@ -21,9 +21,13 @@ jobs:
             gh-actions-script.sh
           sparse-checkout-cone-mode: false
       - id: run1
+        shell: bash
         run: |
-          bash gh-actions-script.sh 
-          >> "$GITHUB_OUTPUT"
+          res=$( gh-actions-script.sh )
+  
+          echo "result<<EOF" >> "$GITHUB_OUTPUT"
+          echo $res >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
 
   workflow_2:
     runs-on: ubuntu-latest
@@ -37,4 +41,4 @@ jobs:
           echo ${{ inputs.input_name }}
           echo "value=`basename ${{ github.repository }}`"
           ls ${{ github.workspace }}
-          echo "output1= ${{ needs.workflow_1.output.output1 }}"
+          echo "output1= ${{ needs.workflow_1.output.result }}"
