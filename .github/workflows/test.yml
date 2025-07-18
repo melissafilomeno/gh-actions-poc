@@ -31,6 +31,10 @@ jobs:
 
   workflow_2:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
     needs: workflow_1
     steps:
       - uses: actions/checkout@v4
