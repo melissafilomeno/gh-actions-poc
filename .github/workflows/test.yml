@@ -40,5 +40,5 @@ jobs:
           echo test, and deploy your project.
           echo ${{ inputs.input_name }}
           echo "value=`basename ${{ github.repository }}`"
+          echo "output1= ${{ needs.workflow_1.outputs.result }}" >> "output.txt"
           ls ${{ github.workspace }}
-          echo "output1= ${{ needs.workflow_1.outputs.result }}"
