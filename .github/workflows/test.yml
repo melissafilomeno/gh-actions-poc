@@ -21,7 +21,9 @@ jobs:
             gh-actions-script.sh
           sparse-checkout-cone-mode: false
       - id: run1
-        run: "bash gh-actions-script.sh >> $GITHUB_OUTPUT"
+        run: |
+          bash gh-actions-script.sh 
+          >> "$GITHUB_OUTPUT"
 
   workflow_2:
     runs-on: ubuntu-latest
