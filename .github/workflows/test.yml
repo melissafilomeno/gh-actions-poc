@@ -49,7 +49,7 @@ jobs:
           cat "output.txt"
           git config --global user.email "melissalfilomeno@gmail.com"
           git config --global user.name "MelissaFilomeno"
-          git branch new-branch
+          git checkout -b new-branch
           git add .
           git commit -m "write output file"
           gh pr create --title "pr title" --body "pr body" --base main --head new-branch 
