@@ -41,4 +41,4 @@ jobs:
           echo ${{ inputs.input_name }}
           echo "value=`basename ${{ github.repository }}`"
           ls ${{ github.workspace }}
-          echo "output1= ${{ needs.workflow_1.output.result }}"
+          echo "output1= ${{ needs.workflow_1.outputs.result }}"
