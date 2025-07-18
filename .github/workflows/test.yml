@@ -43,6 +43,8 @@ jobs:
           echo "output1= ${{ needs.workflow_1.outputs.result }}" >> "output.txt"
           ls ${{ github.workspace }}
           cat "output.txt"
+          git config --global user.email "melissalfilomeno@gmail.com"
+          git config --global user.name "MelissaFilomeno"
           git branch new-branch
           git add .
           git commit -m "write output file"
