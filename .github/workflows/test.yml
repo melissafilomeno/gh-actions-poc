@@ -49,9 +49,9 @@ jobs:
           cat "output.txt"
           git config --global user.email "melissalfilomeno@gmail.com"
           git config --global user.name "MelissaFilomeno"
-          git checkout -b new-branch
+          git checkout -b new_branch
           git add .
           git commit -m "write output file"
-          gh pr create --title "pr title" --body "pr body" --base main --head new-branch 
+          gh pr create --title "pr title" --body "pr body" --base main
         env:
             GH_TOKEN: ${{ github.token }}
