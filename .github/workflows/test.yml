@@ -23,7 +23,7 @@ jobs:
       - id: run1
         shell: bash
         run: |
-          res=$( gh-actions-script.sh )
+          res=$( bash gh-actions-script.sh )
   
           echo "result<<EOF" >> "$GITHUB_OUTPUT"
           echo $res >> "$GITHUB_OUTPUT"
