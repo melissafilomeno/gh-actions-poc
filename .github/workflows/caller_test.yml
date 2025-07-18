@@ -5,6 +5,6 @@ on:
 
 jobs:
   call-workflow:
-    uses:  melissafilomeno/gh-actions-poc/.github/workflows/test.yml@v2
+    uses: ./.github/workflows/test.yml
     with:
       input_name: hello_world
