@@ -33,3 +33,4 @@ jobs:
           echo test, and deploy your project.
           echo ${{ inputs.input_name }}
           echo "value=`basename ${{ github.repository }}`"
+          ls
