@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "insert text here" >> gh-actions-out.txt
+echo "gh-actions-script output text"
