@@ -1,0 +1,10 @@
+name: Call a reusable workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-workflow:
+    uses:  melissafilomeno/gh-actions-poc/.github/workflows/test.yml@v2
+    with:
+      input_name: hello_world
