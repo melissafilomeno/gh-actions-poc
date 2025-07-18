@@ -49,3 +49,5 @@ jobs:
           git add .
           git commit -m "write output file"
           gh pr create --title "pr title" --body "pr body" --base main --head new-branch 
+        env:
+            GH_TOKEN: ${{ github.token }}
