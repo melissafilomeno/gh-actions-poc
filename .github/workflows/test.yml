@@ -1,4 +1,4 @@
-name: CI
+name: Reusable workflow
 
 on:
   workflow_call:
@@ -41,10 +41,8 @@ jobs:
     needs: workflow_1
     steps:
       - uses: actions/checkout@v4
-      - name: Run a multi-line script
+      - name: Write workflow_1 contents to file and create PR
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
           echo ${{ inputs.input_name }}
           echo "value=`basename ${{ github.repository }}`"
           echo "${{ needs.workflow_1.outputs.result }}" >> "output.txt"
