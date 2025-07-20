@@ -1,9 +1,22 @@
-print("""
+import argparse
+import sys
 
-  line1
-  line2
+def main() -> int:
+  parser = argparse.ArgumentParser()
+  parser.add_argument('--input1')
+  args = parser.parse_args()
 
-  line3
-  line4
+  print("input1 = {}".format(args.input1))
+  print("""
 
-""")
+	line1
+	line2
+	
+	line3
+	line4
+
+  """)
+  return 0
+
+if __name__ == '__main__':
+  sys.exit(main())
