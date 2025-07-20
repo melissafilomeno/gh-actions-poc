@@ -30,7 +30,7 @@ jobs:
           res="${res//'%'/'%25'}"
           res="${res//$'\n'/'%0A'}"
           res="${res//$'\r'/'%0D'}"
-          echo "::set-output name=result::$res"
+          echo "result=$res" >> $GITHUB_OUTPUT
 
   workflow_2:
     runs-on: ubuntu-latest
