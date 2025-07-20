@@ -30,7 +30,7 @@ def main() -> int:
   parser.add_argument('--github_token')
   args = parser.parse_args()
 
-  contents = get_posts(args.secret1)
+  contents = get_posts(args.github_token)
 	
   print("input1 = {}".format(args.input1))
   print("github_token length = {}".format(args.github_token.len()))
