@@ -33,7 +33,7 @@ def main() -> int:
   contents = get_posts(args.github_token)
 	
   print("input1 = {}".format(args.input1))
-  print("github_token length = {}".format(args.github_token.len()))
+  print("github_token length = {}".format(len(args.github_token)))
   print("gh-actions-3-poc contents = {}".format(contents))
   print("""
 
