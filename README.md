@@ -5,8 +5,11 @@
   - return an output (multi-line string) for another workflow
   - use outputs from another workflow
   - from the output (multi-line string)
-    - create a file from output
+    - write to file
     - create a new branch
     - add a commit for the file creation
     - push the branch
     - create a pull request
+
+## Links :
+- https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#multiline-strings
