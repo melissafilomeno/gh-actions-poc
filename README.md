@@ -14,3 +14,5 @@
 
 ## Links :
 - https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#multiline-strings
+- https://docs.github.com/en/actions/how-tos/writing-workflows/choosing-what-your-workflow-does/using-github-cli-in-workflows
+- https://docs.github.com/en/actions/tutorials/use-github_token-in-workflows
