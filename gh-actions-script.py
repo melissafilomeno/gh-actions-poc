@@ -20,6 +20,10 @@ def get_posts(github_token):
       print("Error:", response.status_code)
       return None
 
+  except requests.exceptions.RequestException as e:
+    print('Error:', e)
+    return None
+
 def main() -> int:
   parser = argparse.ArgumentParser()
   parser.add_argument('--input1')
