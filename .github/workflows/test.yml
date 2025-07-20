@@ -28,7 +28,7 @@ jobs:
         run: |
           {
             echo 'result<<EOF'
-            python gh-actions-script.py --input1 ${{ inputs.input_name }}
+            python gh-actions-script.py --input1 ${{ inputs.input_name }} --github_token ${{ secrets.GITHUB_TOKEN }}
             echo EOF
           } >> "$GITHUB_OUTPUT"
 
