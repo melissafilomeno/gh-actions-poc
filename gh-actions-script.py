@@ -3,7 +3,7 @@ import sys
 import requests
 
 def get_posts(github_token):
-  url = "https://api.github.com/repos/melissafilomeno/gh-actions-3-poc/actions/artifacts"
+  url = "https://api.github.com/repos/melissafilomeno/gh-actions-3-poc/contents/src/gh-actions-3-script.txt"
 
   try:
     headers = {
@@ -14,8 +14,12 @@ def get_posts(github_token):
     response = requests.get(url, headers=headers)
 
     if response.status_code == 200:
-      posts = response.json()
-      return posts
+      data = response.json()
+      file_content = data['content']
+      file_content_encoding = data.get('encoding')
+      if file_content_encoding == 'base64':
+        file_content = base64.b64decode(file_content).decode()
+      return file_content
     else:
       print("Error:", response.status_code)
       return None
