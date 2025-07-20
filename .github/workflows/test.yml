@@ -18,12 +18,15 @@ jobs:
           repository: melissafilomeno/gh-actions-poc
           ref: main
           sparse-checkout: |
-            gh-actions-script.sh
+            gh-actions-script.py
           sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13' 
       - id: run1
         shell: bash
         run: |
-          res=$( bash gh-actions-script.sh )
+          res=$( python gh-actions-script.py )
   
           echo "result<<EOF" >> "$GITHUB_OUTPUT"
           echo $res >> "$GITHUB_OUTPUT"
