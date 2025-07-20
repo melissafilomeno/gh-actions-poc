@@ -26,11 +26,11 @@ jobs:
       - id: run1
         shell: bash
         run: |
-          res=$(python gh-actions-script.py)
-          res="${res//'%'/'%25'}"
-          res="${res//$'\n'/'%0A'}"
-          res="${res//$'\r'/'%0D'}"
-          echo "result=$res" >> $GITHUB_OUTPUT
+          {
+            echo 'result<<EOF'
+            python gh-actions-script.py
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
 
   workflow_2:
     runs-on: ubuntu-latest
