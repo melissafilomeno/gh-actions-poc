@@ -1,12 +1,36 @@
 import argparse
 import sys
+import requests
+
+def get_posts(github_token):
+  url = "https://api.github.com/repos/melissafilomeno/gh-actions-3-poc/actions/artifacts"
+
+  try:
+    headers = {
+      "Accept" : "application/vnd.github+json",
+      "Authorization" : "Bearer {}".format(github_token),
+      "X-GitHub-Api-Version" : "2022-11-28"
+    }
+    response = requests.get(url, headers=headers)
+
+    if response.status_code == 200:
+      posts = response.json()
+      return posts
+    else:
+      print("Error:", response.status_code)
+      return None
 
 def main() -> int:
   parser = argparse.ArgumentParser()
   parser.add_argument('--input1')
+  parser.add_argument('--github_token')
   args = parser.parse_args()
 
+  contents = get_posts(args.secret1)
+	
   print("input1 = {}".format(args.input1))
+  print("github_token length" = {}".format(args.github_token.len()))
+  print("gh-actions-3-poc contents = {}".format(contents))
   print("""
 
 	line1
