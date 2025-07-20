@@ -1,6 +1,8 @@
 import argparse
 import sys
 import requests
+import json
+import base64
 
 def get_posts(github_token):
   url = "https://api.github.com/repos/melissafilomeno/gh-actions-3-poc/contents/src/gh-actions-3-script.txt"
