@@ -10,6 +10,8 @@ on:
 jobs:
   workflow_1:
     runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.run1.outputs.result }}
     steps:
       - uses: actions/checkout@v4
         with: 
@@ -24,11 +26,11 @@ jobs:
       - id: run1
         shell: bash
         run: |
-          RESULT=$( python gh-actions-script.py )
-  
-          echo "RESULT<<EOF" >> "$GITHUB_ENV"
-          echo $RESULT >> "$GITHUB_ENV"
-          echo "EOF" >> "$GITHUB_ENV"
+          res=$(python gh-actions-script.py)
+          res="${res//'%'/'%25'}"
+          res="${res//$'\n'/'%0A'}"
+          res="${res//$'\r'/'%0D'}"
+          echo "::set-output name=result::$res"
 
   workflow_2:
     runs-on: ubuntu-latest
@@ -45,7 +47,7 @@ jobs:
           echo test, and deploy your project.
           echo ${{ inputs.input_name }}
           echo "value=`basename ${{ github.repository }}`"
-          echo "${{ env.RESULT }}" >> "output.txt"
+          echo "${{ needs.workflow_1.outputs.result }}" >> "output.txt"
           ls ${{ github.workspace }}
           cat "output.txt"
           git config --global user.email "melissalfilomeno@gmail.com"
