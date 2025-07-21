@@ -48,7 +48,7 @@ jobs:
           echo "value=`basename ${{ github.repository }}`"
           echo "${{ needs.workflow_1.outputs.result }}" >> "${{ inputs.input_name }}_output.txt"
           ls ${{ github.workspace }}
-          cat "output.txt"
+          cat "${{ inputs.input_name }}_output.txt"
           git config --global user.email "melissalfilomeno@gmail.com"
           git config --global user.name "MelissaFilomeno"
           git checkout -b new_branch
