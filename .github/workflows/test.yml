@@ -51,10 +51,10 @@ jobs:
           cat "${{ inputs.input_name }}_output.txt"
           git config --global user.email "melissalfilomeno@gmail.com"
           git config --global user.name "MelissaFilomeno"
-          git checkout -b new_branch
+          git checkout -b "${{ inputs.input_name }}_branch"
           git add .
-          git commit -m "write output file"
-          git push -u origin new_branch
+          git commit -m "add ${{ inputs.input_name }}_output.txt"
+          git push -u origin "${{ inputs.input_name }}_branch"
           gh pr create --title "pr title" --body "pr body" --base main
         env:
             GH_TOKEN: ${{ github.token }}
